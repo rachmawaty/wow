@@ -6,7 +6,7 @@ class User_model extends CI_Model {
         $this->load->database();
     }
      
-    public function getUsers()
+    public function getList()
     {
         $query = $this->db->get('users');
         return $query->result();
@@ -21,12 +21,13 @@ class User_model extends CI_Model {
     public function createOrUpdate()
     {
         $this->load->helper('url');
-        $username = $this->input->post('username');
+        $id = $this->input->post('id');
  
         $data = array(
             'username' => $this->input->post('username'),
             'department' => $this->input->post('department')
         );
+
         if (empty($id)) {
             return $this->db->insert('users', $data);
         } else {

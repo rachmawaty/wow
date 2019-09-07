@@ -13,18 +13,7 @@ class User extends CI_Controller {
 
         public function index()
         {
-                // echo 'Hello World!';
-
-        	/*$data = array(
-		        'title' => 'My Title',
-		        'heading' => 'My Heading',
-		        'message' => 'My Message'
-			);
-
-			$this->load->view('userview', $data);
-        	// $this->load->view('userview');*/
-
-        	$data['users'] = $this->User_model->getUsers();
+        	$data['users'] = $this->User_model->getList();
        		$data['title'] = 'User List';
  
         	$this->load->view('users/list', $data);

@@ -19,26 +19,26 @@
 <div class="row">
     <div class="col-lg-12 mt40">
         <div class="pull-left">
-            <h2>Add User</h2>
+            <h2>Edit User</h2>
         </div>
     </div>
 </div>
      
      
 <form action="<?php echo base_url('user/store') ?>" method="POST" name="edit_note">
-   <input type="hidden" name="id">
+   <input type="hidden" name="id" value="<?php echo $user->username ?>">
      <div class="row">
         <div class="col-md-12">
             <div class="form-group">
                 <strong>Username</strong>
-                <input type="text" name="username" class="form-control" placeholder="Enter Username">
+                <input type="text" name="username" class="form-control" value="<?php echo $user->username ?>" placeholder="Enter Username">
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-group">
                 <strong>Department</strong>
-                <textarea class="form-control" col="4" name="department"
-                 placeholder="Enter Department"></textarea>
+                <textarea class="form-control" col="4" name="description"
+                 placeholder="Enter Department"><?php echo $user->department ?></textarea>
             </div>
         </div>
         <div class="col-md-12">
