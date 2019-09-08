@@ -1,5 +1,5 @@
 <?php
-class User_model extends CI_Model {
+class Nodin_model extends CI_Model {
 
 	public function __construct()
     {
@@ -24,7 +24,7 @@ class User_model extends CI_Model {
         $no_nodin = $this->input->post('no_nodin');
  
         $data = array(
-            'id' ==> $this->input->post('id'),
+            'id' => $this->input->post('id'),
             'no_nodin' => $this->input->post('username'),
             'title' => $this->input->post('title'),
             'nodin_type' => $this->input->post('nodin_type'), // Request|RFS|RFC|RFI|ITR
@@ -33,7 +33,7 @@ class User_model extends CI_Model {
             'no_nodin_parent' => $this->input->post('no_nodin_parent'),
             'to' => $this->input->post('to'),
             'cc' => $this->input->post('cc'),
-            'body' => $this->input->post('body'),\
+            'body' => $this->input->post('body'),
         );
 
         if (empty($no_nodin)) {
