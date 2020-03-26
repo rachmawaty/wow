@@ -29,7 +29,13 @@ class Employee_model extends CI_Model {
         $query = $this->db->get_where('employees', array('name' => $name));
         return $query->row();
     }
-     
+
+    public function getEmployeeEmailByTitle($title)
+    {
+        $query = $this->db->get_where('employees', array('title' => $title));
+        return $query->row()->email;
+    }
+
     public function createEmployee($email,$title,$name,$department,$division,$subdir)
     {
         $this->load->helper('url');

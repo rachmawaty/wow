@@ -59,6 +59,12 @@ class Nodin_model extends CI_Model {
         return $query->result();
     }
 
+    public function getNodinByNodinType($nodin_type)
+    {
+        $query = $this->db->get_where('nodins', array('nodin_type' => $nodin_type));
+        return $query->result();
+    }
+
     public function isParent($no_nodin)
     {
         $isParent = false;
@@ -78,7 +84,7 @@ class Nodin_model extends CI_Model {
             'no_nodin_parent' => $no_nodin_parent
         ];
 
-        $this->db->where('nodins', $no_nodin);
+        $this->db->where('no_nodin', $no_nodin);
         return $this->db->update('nodins', $data);
         //echo 'No Nodin Parent has successfully been updated';
 
@@ -86,6 +92,22 @@ class Nodin_model extends CI_Model {
 
     public function setNodinToEmployee($no_nodin, $employee_title, $employee_email, $employee_as)
     {
+        $data = [
+            'no_nodin' => $no_nodin,
+            'employee_title' => $employee_title,
+            'employee_email' => $employee_email,
+            'employee_as' => $employee_as //enum : Sender, Recipient, Cc
+        ];
+
+        return $this->db->insert('nodins_employees', $data);
+    }
+
+    public function setNodinToEmployee2($no_nodin, $employee_title, $employee_as)
+    {
+
+        $query = $this->db->get_where('employees', array('title' => $title));
+        $employee_email = $query->row()->email;
+
         $data = [
             'no_nodin' => $no_nodin,
             'employee_title' => $employee_title,
