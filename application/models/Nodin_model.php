@@ -1,7 +1,7 @@
 <?php
 class Nodin_model extends CI_Model {
 
-	public function __construct()
+    public function __construct()
     {
         $this->load->database();
     }
@@ -115,11 +115,11 @@ class Nodin_model extends CI_Model {
         $data = array(
             'no_nodin' => $no_nodin,
             'no_nodin_parent' => $no_nodin_parent,
-            'nodin_title' => $title,
-            'nodin_sender' => $title,
-            'nodin_recipient' => $title,
-            'nodin_cc' => $title,
-            'nodin_body' => $title,
+            'nodin_title' => $nodin_title,
+            'nodin_sender' => $nodin_sender,
+            'nodin_recipient' => $nodin_recipient,
+            'nodin_cc' => $nodin_cc,
+            'nodin_body' => $nodin_body,
             'nodin_type' => $nodin_type, // enum: request|rfs|rfc|rfi|itr
             'nodin_date' => $nodin_date,
             'target_date' => $target_date
@@ -137,11 +137,11 @@ class Nodin_model extends CI_Model {
         $data = array(
             'no_nodin' => $no_nodin,
             'no_nodin_parent' => $no_nodin_parent,
-            'nodin_title' => $title,
-            'nodin_sender' => $title,
-            'nodin_recipient' => $title,
-            'nodin_cc' => $title,
-            'nodin_body' => $title,
+            'nodin_title' => $nodin_title,
+            'nodin_sender' => $nodin_sender,
+            'nodin_recipient' => $nodin_recipient,
+            'nodin_cc' => $nodin_cc,
+            'nodin_body' => $nodin_body,
             'nodin_type' => $nodin_type, // enum: request|rfs|rfc|rfi|itr
             'nodin_date' => $nodin_date,
             'target_date' => $target_date

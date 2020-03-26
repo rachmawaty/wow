@@ -15,11 +15,13 @@ class Nodin extends CI_Controller {
         {	
         	$data['nodins'] = $this->Nodin_model->getList();
         	$parents = $this->Nodin_model->getAllParents();
-			//print_r($data);			
+			$this->sync($data);
+			
+			//print_r($parents);
 			
 			
 //			$this->sync($data);
-			$this->show($parents);
+			/*$this->show($parents);
 			$result = array('parent' => '0', 'data' => array(
 				array(
 					'value' => '3512/MK.05/EN-01/IX/2019', 
@@ -109,7 +111,7 @@ class Nodin extends CI_Controller {
 			echo json_encode($result2);
 			echo "<br><br>samakah ? ".($result == $result2);
         	$this->load->view('nodins/sync', $result);
-        	
+        	*/
         }
 		/*
 		$result = array('parent' => '0', 'data' => array(
@@ -173,12 +175,13 @@ class Nodin extends CI_Controller {
 			// preg_match('/(?<name>\w+): (?<digit>\d+)/', $str, $matches);
 			$i=0;
 			foreach($data["nodins"] as $data_row){
-				echo ++$i.". input body: ".$data_row->body."<br>";
+				echo ++$i.". input body: ".$data_row->nodin_body."<br>";
 				echo "output:";
 				
-				preg_match('/(\w+)\/(\w+.\w+)\/(\w+-\w+)\/(\w+)\/(\d+)/', $data_row->body, $matches);
+				preg_match('/(\w+)\/(\w+.\w+)\/(\w+-\w+)\/(\w+)\/(\d+)/', $data_row->nodin_body, $matches);
 				if (!empty($matches)) {
 					echo "parent found <br>";
+					$this->Nodin_model->setNoNodinParent($data_row->no_nodin, $matches[0]);
 					print_r($matches);
 					echo "<br><br>";
 				}
